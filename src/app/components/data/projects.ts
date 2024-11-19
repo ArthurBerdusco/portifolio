@@ -1,4 +1,4 @@
-import { Project } from '@/components/types';
+import { Project } from '@/app/components/types';
 import {
   SiMysql,
   SiSpring,
@@ -13,11 +13,11 @@ import {
   FaReact
 } from 'react-icons/fa'
 
-import imagem1 from '../../../public/projeto1.webp';
-import imagem2 from '../../../public/projeto2.webp';
-import imagem3 from '../../../public/projeto3.avif';
-import imagem4 from '../../../public/projeto4.png';
-import imagem5 from '../../../public/projeto5.png';
+import imagem1 from '../../../../public/projeto1.webp';
+import imagem2 from '../../../../public/projeto2.webp';
+import imagem3 from '../../../../public/projeto3.avif';
+import imagem4 from '../../../../public/projeto4.png';
+import imagem5 from '../../../../public/projeto5.png';
 
 
 export const projects: Project[] = [

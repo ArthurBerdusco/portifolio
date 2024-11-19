@@ -1,11 +1,13 @@
 'use client'
 // src/components/sections/Projects.tsx
 import { useState } from 'react';
-import { ProjectCard } from '@/components/ui/Card';
+import { ProjectCard } from '@/app/components/ui/Card';
 import { projects } from '../data/projects';
 import { Project } from '../types';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/Dialog';
+import { Dialog, DialogContent, DialogTitle } from '@radix-ui/react-dialog';
+
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -20,6 +22,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20 bg-gray-50">
+     
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-4">Projetos</h2>
         <p className="text-gray-600 mb-12">
@@ -40,9 +43,6 @@ export default function Projects() {
           <DialogContent className="max-w-3xl">
             {selectedProject && (
               <>
-                <DialogHeader>
-                  <DialogTitle>{selectedProject.title}</DialogTitle>
-                </DialogHeader>
 
                 <div className="mt-4 space-y-6">
                   {/* Galeria de imagens */}
@@ -164,7 +164,9 @@ export default function Projects() {
               </>
             )}
           </DialogContent>
+
         </Dialog>
+        
       </div>
     </section>
   );

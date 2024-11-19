@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import { Project } from '@/components/types/index'; // Ajuste o caminho conforme a estrutura do projeto
+import { Project } from '@/app/components/types/index'; // Ajuste o caminho conforme a estrutura do projeto
+import Link from 'next/link';
 
 
 export interface ProjectCardProps {
@@ -76,6 +77,8 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
             >
               Ver Detalhes
             </button>
+            <Link href={`/projetos/${project.id}`} >Navegar para projeto</Link>
+
           </div>
         </div>
       </div>

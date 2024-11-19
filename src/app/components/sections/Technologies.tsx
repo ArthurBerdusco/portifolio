@@ -1,5 +1,5 @@
 // src/components/sections/Technologies.tsx
-import { getTechnologiesByCategory, categoryTranslations } from '@/components/data/technologies'
+import { getTechnologiesByCategory, categoryTranslations } from '@/app/components/data/technologies'
 
 export default function Technologies() {
   const technologiesByCategory = getTechnologiesByCategory();

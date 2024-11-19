@@ -1,25 +1,17 @@
 import Head from 'next/head';
 
-import Header from '../components/layout/Header';
+import Header from './components/layout/Header';
 
-import  Hero  from '@/components/sections/Hero';
-import  About  from '@/components/sections/About';
-import  Projects  from '@/components/sections/Projects';
-import  Technologies  from '@/components/sections/Technologies';
+import  Hero  from '@/app/components/sections/Hero';
+import  About  from '@/app/components/sections/About';
+import  Projects  from '@/app/components/sections/Projects';
+import  Technologies  from '@/app/components/sections/Technologies';
+import Link from 'next/link';
 
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Arthur Silva - Desenvolvedor de Software</title>
-        <meta 
-          name="description" 
-          content="Portfólio de Arthur Silva - Desenvolvedor de Software formado pelo SENAC" 
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <Header />
       
       <main>
