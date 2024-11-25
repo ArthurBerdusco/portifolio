@@ -48,7 +48,7 @@ export interface Project {
   technologies: Technology[];
   features: ProjectFeature[];
   links: ProjectLinks;
-  images?: ProjectImage[];
+  images: ProjectImage[];
   thumbnail?: string;
   duration: ProjectDuration;
   highlights: string[];

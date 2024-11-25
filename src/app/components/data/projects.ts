@@ -1,19 +1,10 @@
 import { Project } from '@/app/components/types';
-import {
-  SiMysql,
-  SiSpring,
-  SiReact,
-  SiDatabricks,
-  SiThymeleaf,
 
-} from 'react-icons/si';
-
-import {
-  FaJava,
-  FaReact
-} from 'react-icons/fa'
-
-import imagem1 from '../../../../public/projeto1.webp';
+import mestreDosMagos2 from '../../../../public/projetos/mestre dos magos/2.png';
+import mestreDosMagos3 from '../../../../public/projetos/mestre dos magos/3.png';
+import mestreDosMagos4 from '../../../../public/projetos/mestre dos magos/4.png';
+import mestreDosMagos5 from '../../../../public/projetos/mestre dos magos/5.png'
+import mestreDosMagos6 from '../../../../public/projetos/mestre dos magos/6.png';
 import imagem2 from '../../../../public/projeto2.webp';
 import imagem3 from '../../../../public/projeto3.avif';
 import imagem4 from '../../../../public/projeto4.png';
@@ -47,7 +38,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/seu-usuario/rpg-potter"
+      github: "https://github.com/ArthurBerdusco/Projeto-Integrador-SENAC"
     },
     duration: {
       start: "2022-01",
@@ -80,11 +71,33 @@ export const projects: Project[] = [
       "Orientação a objetos básica"
     ],
     images: [
+
       {
-        url: imagem1.src,
+        url: mestreDosMagos2.src,
         alt: 'Ola mundo',
         caption: 'kkk'
-      }
+      },
+      {
+        url: mestreDosMagos3.src,
+        alt: 'Ola mundo',
+        caption: 'kkk'
+      },
+      {
+        url: mestreDosMagos4.src,
+        alt: 'Ola mundo',
+        caption: 'kkk'
+      },
+      {
+        url: mestreDosMagos5.src,
+        alt: 'Ola mundo',
+        caption: 'kkk'
+      },
+      {
+        url: mestreDosMagos6.src,
+        alt: 'Ola mundo',
+        caption: 'kkk'
+      },
+
     ]
   },
   {
@@ -115,7 +128,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/seu-usuario/toystore-pdv"
+      github: "https://github.com/ArthurBerdusco/Projeto-Integrador-II"
     },
     duration: {
       start: "2022-04",
@@ -184,7 +197,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/seu-usuario/pc-builder"
+      github: "https://github.com/Eliseu-F/assistente-de-montagem-de-pc"
     },
     duration: {
       start: "2022-07",
@@ -226,11 +239,11 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Spring E-commerce",
+    title: "E-commerce",
     subtitle: "Plataforma de e-commerce com Spring Boot",
     description: "E-commerce completo desenvolvido com Spring Boot e Thymeleaf",
     longDescription: "Plataforma de e-commerce desenvolvida com Spring Boot, incluindo área administrativa e loja virtual. Sistema completo com gestão de produtos, carrinho de compras, autenticação de usuários e controle de estoque.",
-    type: "fullstack",
+    type: "web",
     status: "concluído",
     technologies: [
       { name: "Spring Boot", version: "2.5" },
@@ -253,7 +266,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/seu-usuario/spring-ecommerce"
+      github: "https://github.com/ArthurBerdusco/projetointegrador4"
     },
     duration: {
       start: "2023-01",
@@ -295,7 +308,7 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    title: "School Van Connect",
+    title: "Van escolar",
     subtitle: "App mobile para conexão entre motoristas escolares e responsáveis",
     description: "Aplicativo React Native para conectar motoristas de van escolar e pais",
     longDescription: "Aplicativo mobile desenvolvido em React Native com backend em Spring Boot, facilitando a conexão entre motoristas de van escolar e pais. O sistema permite que motoristas gerenciem seus clientes e que pais encontrem transportadores escolares confiáveis.",
@@ -321,7 +334,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/seu-usuario/school-van-connect"
+      github: "https://github.com/ArthurBerdusco/projeto5"
     },
     duration: {
       start: "2023-04",
@@ -362,3 +375,11 @@ export const projects: Project[] = [
     ]
   }
 ];
+
+export default function getProject(id: string): Project {
+  const project = projects.find((x) => x.id === Number(id));
+  if (!project) {
+    throw new Error("Project not found");
+  }
+  return project;
+}

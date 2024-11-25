@@ -5,7 +5,7 @@ export default function Technologies() {
   const technologiesByCategory = getTechnologiesByCategory();
 
   return (
-    <section id="technologies" className="py-20 bg-gray-50">
+    <section id="technologies" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12">Tecnologias</h2>
         
@@ -20,7 +20,7 @@ export default function Technologies() {
                   key={tech.name}
                   className="flex items-center space-x-4 p-4 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <tech.icon className="w-8 h-8 text-gray-600" />
+                    <tech.icon className={`w-8 h-8`} color={tech.colorIcon}/>
                   <div>
                     <span className="font-medium block">{tech.name}</span>
                     <span className="text-sm text-gray-500">
