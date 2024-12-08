@@ -20,6 +20,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/projeto1/*": ["./src/assets/projetos/1/*"],
+      "@/projeto2/*": ["./src/assets/projetos/2/*"],
+      "@/projeto3/*": ["./src/assets/projetos/3/*"],
+      "@/projeto4/*": ["./src/assets/projetos/4/*"],
+      "@/projeto5/*": ["./src/assets/projetos/5/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

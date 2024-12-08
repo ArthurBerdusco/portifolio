@@ -11,33 +11,34 @@ import Education from '@/app/components/sections/Education';
 export default function Home() {
   return (
     <>
-      <Header />
-      
-      <main>
-        <div className="bg-white">
-          <Hero />
-        </div>
-        
-        <div className="bg-gray-200">
-          <About />
-        </div>
-        
-        <div className="bg-white">
-          <Projects />
-        </div>
-        
-        <div className="bg-gray-200">
-          <Technologies />
-        </div>
-        
-        <div className="bg-white">
-          <Experience />
-        </div>
-        
-        <div className="bg-gray-200">
-          <Education />
-        </div>
-      </main>
-    </>
+  <Header />
+
+  <main>
+    <div className="bg-[#FDFDFD]">
+      <Hero />
+    </div>
+    
+    <div className="bg-[#F4F4F5]">
+      <About />
+    </div>
+    
+    <div className="bg-[#FDFDFD]">
+      <Projects />
+    </div>
+    
+    <div className="bg-[#F4F4F5]">
+      <Technologies />
+    </div>
+    
+    <div className="bg-[#FDFDFD]">
+      <Experience />
+    </div>
+    
+    <div className="bg-[#F4F4F5]">
+      <Education />
+    </div>
+  </main>
+</>
+
   );
 }

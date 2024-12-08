@@ -1,15 +1,61 @@
 import { Project } from '@/app/components/types';
 
-import mestreDosMagos2 from '../../../../public/projetos/mestre dos magos/2.png';
-import mestreDosMagos3 from '../../../../public/projetos/mestre dos magos/3.png';
-import mestreDosMagos4 from '../../../../public/projetos/mestre dos magos/4.png';
-import mestreDosMagos5 from '../../../../public/projetos/mestre dos magos/5.png'
-import mestreDosMagos6 from '../../../../public/projetos/mestre dos magos/6.png';
-import imagem2 from '../../../../public/projeto2.webp';
-import imagem3 from '../../../../public/projeto3.avif';
-import imagem4 from '../../../../public/projeto4.png';
-import imagem5 from '../../../../public/projeto5.png';
+import mestreDosMagos1 from '@/projeto1/inicio do jogo.png';
+import mestreDosMagos2 from '@/projeto1/sala de aula.png';
+import mestreDosMagos3 from '@/projeto1/hall da escola.png';
+import mestreDosMagos4 from '@/projeto1/batalha com dragao.png';
+import mestreDosMagos5 from '@/projeto1/sala do zelador.png'
+import mestreDosMagos6 from '@/projeto1/desafio final.png';
 
+import toyStore1 from '@/projeto2/tela de venda.png'
+import toyStore2 from '@/projeto2/finalizar pagamento.png'
+import toyStore3 from '@/projeto2/produtos.png'
+import toyStore4 from '@/projeto2/editar produto.png'
+import toyStore5 from '@/projeto2/tela clientes.png'
+import toyStore6 from '@/projeto2/tela relatorios.png'
+import toyStore7 from '@/projeto2/relatorio de venda.png'
+
+import montagemPc1 from '@/projeto3/tela-principal.png';
+import montagemPc2 from '@/projeto3/tela-usuario.png';
+import montagemPc3 from '@/projeto3/Tela-login.png';
+import montagemPc4 from '@/projeto3/tela-categorias.png';
+import montagemPc5 from '@/projeto3/tela-de-cadastro.png';
+import montagemPc6 from '@/projeto3/tela-especificacoes-pro.png';
+import montagemPc7 from '@/projeto3/tela-especificacoes.png';
+import montagemPc8 from '@/projeto3/er-logico.png';
+import montagemPc9 from '@/projeto3/diagrama-uml.png';
+import montagemPc10 from '@/projeto3/er-conceitual.png';
+
+import ecommerce1 from '@/projeto4/principal.png';
+import ecommerce2 from '@/projeto4/tela produto.png';
+import ecommerce3 from '@/projeto4/carrinho.png';
+import ecommerce4 from '@/projeto4/forma pagamento.png';
+import ecommerce5 from '@/projeto4/resumo pedido.png';
+import ecommerce6 from '@/projeto4/meus pedidos.png';
+import ecommerce7 from '@/projeto4/detalhe pedido.png';
+import ecommerce8 from '@/projeto4/backoffice home.png';
+import ecommerce9 from '@/projeto4/backoffice usuarios.png';
+import ecommerce10 from '@/projeto4/backoffice usuario editar.png';
+import ecommerce11 from '@/projeto4/backoffice produtos.png';
+import ecommerce12 from '@/projeto4/backoffice produto editar.png';
+import ecommerce13 from '@/projeto4/backoffice pedidos.png';
+import ecommerce14 from '@/projeto4/backoffice pedido editar.png';
+
+import otio1 from '@/projeto5/login.jpeg';
+import otio2 from '@/projeto5/cadastro.jpeg';
+import otio3 from '@/projeto5/perueiro_home.jpeg';
+import otio4 from '@/projeto5/perueiro_perfil.jpeg';
+import otio5 from '@/projeto5/perueiro_escolasatendidas.jpeg';
+import otio6 from '@/projeto5/perueiro_escolas_procurar.jpeg';
+import otio7 from '@/projeto5/perueiro_escola_criancas.jpeg';
+import otio8 from '@/projeto5/perueiro_minhavan.jpeg';
+import otio9 from '@/projeto5/perueiro_ofertas.jpeg';
+import otio10 from '@/projeto5/perueiro_organizarcriancas.jpeg';
+import otio11 from '@/projeto5/responsavel_home.jpeg';
+import otio12 from '@/projeto5/responsavel_crianca_perfil.jpeg';
+import otio13 from '@/projeto5/responsavel_crianca_ausencias.jpeg';
+import otio14 from '@/projeto5/responsavel_crianca_perueiro.jpeg';
+import otio15 from '@/projeto5/responsavel_perfil.jpeg';
 
 export const projects: Project[] = [
   {
@@ -38,7 +84,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/ArthurBerdusco/Projeto-Integrador-SENAC"
+      github: "https://github.com/ArthurBerdusco/senac-projeto-1"
     },
     duration: {
       start: "2022-01",
@@ -71,33 +117,36 @@ export const projects: Project[] = [
       "Orientação a objetos básica"
     ],
     images: [
-
+      {
+        url: mestreDosMagos1.src,
+        alt: 'Tela inicial do jogo, mostrando o cenário de introdução.',
+        caption: 'Início da aventura do jogo.'
+      },
       {
         url: mestreDosMagos2.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        alt: 'Sala de aula, com elementos e personagens interativos.',
+        caption: 'Explore o aprendizado e interações.'
       },
       {
         url: mestreDosMagos3.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        alt: 'Hall central da escola, com vários detalhes visuais.',
+        caption: 'Navegue pelo hall e descubra segredos.'
       },
       {
         url: mestreDosMagos4.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        alt: 'Batalha contra um dragão poderoso no cenário do jogo.',
+        caption: 'Teste suas habilidades na batalha final.'
       },
       {
         url: mestreDosMagos5.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        alt: 'Sala do zelador, repleta de elementos misteriosos.',
+        caption: 'Descubra segredos escondidos na sala.'
       },
       {
         url: mestreDosMagos6.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
-      },
-
+        alt: 'O desafio final, confrontando o chefe principal.',
+        caption: 'Enfrente o desafio épico e prove sua força.'
+      }
     ]
   },
   {
@@ -128,7 +177,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/ArthurBerdusco/Projeto-Integrador-II"
+      github: "https://github.com/ArthurBerdusco/senac-projeto-2"
     },
     duration: {
       start: "2022-04",
@@ -162,9 +211,39 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        url: imagem2.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        url: toyStore1.src,
+        alt: 'Tela principal da loja, exibindo os produtos disponíveis.',
+        caption: 'Visualize e compre produtos de forma rápida.'
+      },
+      {
+        url: toyStore2.src,
+        alt: 'Tela de finalizar pagamento, com opções de métodos de pagamento.',
+        caption: 'Finalize suas compras de maneira segura.'
+      },
+      {
+        url: toyStore3.src,
+        alt: 'Seção de produtos, mostrando todos os itens disponíveis.',
+        caption: 'Explore os produtos disponíveis na loja.'
+      },
+      {
+        url: toyStore4.src,
+        alt: 'Tela para editar um produto na interface da loja.',
+        caption: 'Edite as informações dos produtos facilmente.'
+      },
+      {
+        url: toyStore5.src,
+        alt: 'Tela de clientes, mostrando informações e registros.',
+        caption: 'Gerencie e acompanhe seus clientes na plataforma.'
+      },
+      {
+        url: toyStore6.src,
+        alt: 'Tela de relatórios, com análises e gráficos detalhados.',
+        caption: 'Acompanhe métricas e desempenho da sua loja.'
+      },
+      {
+        url: toyStore7.src,
+        alt: 'Relatório de vendas, com todos os detalhes das transações.',
+        caption: 'Analise os relatórios e tome decisões estratégicas.'
       }
     ]
   },
@@ -197,7 +276,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/Eliseu-F/assistente-de-montagem-de-pc"
+      github: "https://github.com/ArthurBerdusco/senac-projeto-3"
     },
     duration: {
       start: "2022-07",
@@ -231,9 +310,54 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        url: imagem3.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        url: montagemPc1.src,
+        alt: 'Tela principal do sistema, com navegação e atalhos essenciais.',
+        caption: 'Acesse todas as funcionalidades do sistema rapidamente.'
+      },
+      {
+        url: montagemPc2.src,
+        alt: 'Tela do usuário, com informações e configurações pessoais.',
+        caption: 'Gerencie sua conta e preferências no sistema.'
+      },
+      {
+        url: montagemPc3.src,
+        alt: 'Tela de login, solicitando credenciais do usuário.',
+        caption: 'Faça login de forma rápida e segura.'
+      },
+      {
+        url: montagemPc4.src,
+        alt: 'Tela de categorias, facilitando a busca por produtos.',
+        caption: 'Navegue facilmente entre categorias disponíveis.'
+      },
+      {
+        url: montagemPc5.src,
+        alt: 'Tela de cadastro de novos usuários ou produtos.',
+        caption: 'Adicione facilmente novos cadastros ao sistema.'
+      },
+      {
+        url: montagemPc6.src,
+        alt: 'Tela de especificações profissionais detalhadas.',
+        caption: 'Acompanhe especificações técnicas avançadas.'
+      },
+      {
+        url: montagemPc7.src,
+        alt: 'Tela de especificações comuns, com detalhes visuais.',
+        caption: 'Detalhes práticos e essenciais das especificações.'
+      },
+      {
+        url: montagemPc8.src,
+        alt: 'Representação do ER lógico, mostrando entidades e relacionamentos.',
+        caption: 'Entenda a estrutura de dados e suas conexões.'
+      },
+      {
+        url: montagemPc9.src,
+        alt: 'Diagrama UML do sistema, representando classes e interações.',
+        caption: 'Visualize a arquitetura e relacionamentos das classes.'
+      },
+      {
+        url: montagemPc10.src,
+        alt: 'Diagrama ER conceitual, com foco no design do banco de dados.',
+        caption: 'Entenda a estrutura conceitual das entidades e relacionamentos.'
       }
     ]
   },
@@ -266,7 +390,7 @@ export const projects: Project[] = [
       }
     ],
     links: {
-      github: "https://github.com/ArthurBerdusco/projetointegrador4"
+      github: "https://github.com/ArthurBerdusco/senac-projeto-4"
     },
     duration: {
       start: "2023-01",
@@ -300,9 +424,74 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        url: imagem4.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        url: ecommerce1.src,
+        alt: 'Tela principal da loja, com navegação e destaques.',
+        caption: 'Explore os produtos e ofertas principais.'
+      },
+      {
+        url: ecommerce2.src,
+        alt: 'Tela do produto, com detalhes e imagens.',
+        caption: 'Confira todas as informações sobre o produto.'
+      },
+      {
+        url: ecommerce3.src,
+        alt: 'Tela do carrinho, mostrando os itens adicionados.',
+        caption: 'Revise e edite os produtos no seu carrinho.'
+      },
+      {
+        url: ecommerce4.src,
+        alt: 'Tela de formas de pagamento disponíveis.',
+        caption: 'Escolha a forma de pagamento que preferir.'
+      },
+      {
+        url: ecommerce5.src,
+        alt: 'Resumo do pedido, com detalhes e valores.',
+        caption: 'Confira todos os detalhes antes de finalizar.'
+      },
+      {
+        url: ecommerce6.src,
+        alt: 'Tela dos pedidos anteriores, com histórico completo.',
+        caption: 'Acompanhe todos os seus pedidos realizados.'
+      },
+      {
+        url: ecommerce7.src,
+        alt: 'Detalhe do pedido, mostrando informações específicas.',
+        caption: 'Visualize todos os detalhes do seu pedido.'
+      },
+      {
+        url: ecommerce8.src,
+        alt: 'Home do backoffice, painel de controle do administrador.',
+        caption: 'Gerencie a loja e acompanhe as operações.'
+      },
+      {
+        url: ecommerce9.src,
+        alt: 'Backoffice de usuários, com gerenciamento de contas.',
+        caption: 'Adicione, edite ou remova usuários facilmente.'
+      },
+      {
+        url: ecommerce10.src,
+        alt: 'Tela de edição de informações do usuário no backoffice.',
+        caption: 'Atualize os dados e configurações do usuário.'
+      },
+      {
+        url: ecommerce11.src,
+        alt: 'Gerenciamento de produtos no backoffice.',
+        caption: 'Administre todos os produtos da loja.'
+      },
+      {
+        url: ecommerce12.src,
+        alt: 'Tela para editar informações de produtos no backoffice.',
+        caption: 'Modifique os detalhes dos produtos conforme necessário.'
+      },
+      {
+        url: ecommerce13.src,
+        alt: 'Gerenciamento de pedidos no backoffice.',
+        caption: 'Acompanhe e atualize todos os pedidos da loja.'
+      },
+      {
+        url: ecommerce14.src,
+        alt: 'Tela de edição do pedido no backoffice.',
+        caption: 'Edite os pedidos e acompanhe todos os detalhes.'
       }
     ]
   },
@@ -368,9 +557,79 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        url: imagem5.src,
-        alt: 'Ola mundo',
-        caption: 'kkk'
+        url: otio11.src,
+        alt: 'Home do Responsável, com resumo das informações e acesso rápido.',
+        caption: 'Acompanhe todas as atividades e detalhes importantes.'
+      },
+      {
+        url: otio2.src,
+        alt: 'Tela de cadastro do aplicativo, com informações pessoais.',
+        caption: 'Cadastre-se para ter acesso completo ao sistema.'
+      },
+      {
+        url: otio3.src,
+        alt: 'Tela inicial do Perueiro, mostrando status e principais informações.',
+        caption: 'Gerencie facilmente suas atividades e conexões.'
+      },
+      {
+        url: otio4.src,
+        alt: 'Perfil do Perueiro com detalhes e configurações.',
+        caption: 'Atualize suas informações pessoais e perfil.'
+      },
+      {
+        url: otio5.src,
+        alt: 'Seção das escolas atendidas pelo Perueiro.',
+        caption: 'Gerencie e visualize todas as escolas que atende.'
+      },
+      {
+        url: otio6.src,
+        alt: 'Tela para procurar escolas desejadas pelo Perueiro.',
+        caption: 'Encontre novas oportunidades e conexões facilmente.'
+      },
+      {
+        url: otio7.src,
+        alt: 'Detalhes das crianças cadastradas pela escola atendida.',
+        caption: 'Organize e acompanhe todas as crianças na rota.'
+      },
+      {
+        url: otio8.src,
+        alt: 'Minha Van: Tela do Perueiro para gerenciar sua frota.',
+        caption: 'Configure e acompanhe todos os detalhes das vans.'
+      },
+      {
+        url: otio9.src,
+        alt: 'Ofertas do Perueiro disponíveis no sistema.',
+        caption: 'Visualize todas as ofertas e propostas para conexões.'
+      },
+      {
+        url: otio10.src,
+        alt: 'Organize crianças de forma eficiente no sistema.',
+        caption: 'Gerencie e organize facilmente todas as crianças.'
+      },
+      {
+        url: otio1.src,
+        alt: 'Tela de login do sistema, onde o usuário autentica.',
+        caption: 'Faça login para acessar todas as funcionalidades.'
+      },
+      {
+        url: otio12.src,
+        alt: 'Perfil da criança do Responsável com informações específicas.',
+        caption: 'Acompanhe todos os detalhes e atualizações importantes.'
+      },
+      {
+        url: otio13.src,
+        alt: 'Seção de ausências das crianças na escola.',
+        caption: 'Gerencie ausências e atualize a frequência facilmente.'
+      },
+      {
+        url: otio14.src,
+        alt: 'Perfil das conexões entre Responsáveis e Perueiros.',
+        caption: 'Facilite a comunicação e a interação entre eles.'
+      },
+      {
+        url: otio15.src,
+        alt: 'Perfil do Responsável, com todas as informações essenciais.',
+        caption: 'Acompanhe detalhes e gerencie suas conexões.'
       }
     ]
   }

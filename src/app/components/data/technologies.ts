@@ -157,9 +157,23 @@ export const technologies: Technology[] =   [
 
 // Database
 {
+  name: "SQLServer",
+  icon: SiMicrosoftsqlserver,
+  colorIcon: "#CC2927",
+  category: "database",
+  proficiency: "avançado"
+},
+{
   name: "MySQL",
   icon: SiMysql,
   colorIcon: "#4479A1",
+  category: "database",
+  proficiency: "intermediário"
+},
+{
+  name: "H2 Database",
+  icon: FaDatabase,
+  colorIcon: "#0000FF",
   category: "database",
   proficiency: "intermediário"
 },
@@ -170,20 +184,7 @@ export const technologies: Technology[] =   [
   category: "database",
   proficiency: "básico"
 },
-{
-  name: "SQLServer",
-  icon: SiMicrosoftsqlserver,
-  colorIcon: "#CC2927",
-  category: "database",
-  proficiency: "básico"
-},
-{
-  name: "H2 Database",
-  icon: FaDatabase,
-  colorIcon: "#0000FF",
-  category: "database",
-  proficiency: "básico"
-},
+
 
 // DevOps e Versionamento
 {
