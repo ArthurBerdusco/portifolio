@@ -13,7 +13,7 @@ export interface ProjectLinks {
 
 export interface Technology {
   name: string;
-  version: string;
+  version?: string;
 }
 
 export interface ProjectFeature {

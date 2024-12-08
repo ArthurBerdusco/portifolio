@@ -1,240 +1,131 @@
 'use client';
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowLeft, ArrowRight, X } from 'lucide-react';
-
+import React from 'react';
 import { FaGithub } from 'react-icons/fa';
-
-// Components
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from '@/components/ui/badge';
-
-import getProject, { projects } from '@/app/components/data/projects';
-import { Project, ProjectImage } from '@/app/components/types';
-
-import imagem1 from '../../../../public/projeto1.webp';
-import imagem2 from '../../../../public/projeto2.webp';
-import imagem3 from '../../../../public/projeto3.avif';
 import { useParams } from 'next/navigation';
+import getProject from '@/app/components/data/projects';
+import { Project } from '@/app/components/types';
 import Header from '@/app/components/layout/Header';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Navigation, Pagination } from 'swiper/modules';
 
-// Types
-interface Technology {
-  name: string;
-  version: string;
-}
-
-interface Feature {
-  title: string;
-  description: string;
-}
-
-
-
-
-// Reusable Components
-const TechnologiesBadges: React.FC<{ technologies: Technology[] }> = ({ technologies }) => (
-  <div className="flex flex-wrap gap-2 mb-4">
-    {technologies.map((tech, index) => (
-      <Badge key={index} variant="secondary">
-        {tech.name} {tech.version}
-      </Badge>
-    ))}
-  </div>
-);
-
-const ImageCarousel: React.FC<{
-  images: ProjectImage[] | null,
-  onImageClick: () => void
-}> = ({ images, onImageClick }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (images?.length || 1));
-  };
-
-
-  const prevImage = () => {
-    if (!images || images.length === 0) {
-      return; // Evita operações se `images` for `null` ou vazio
-    }
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-
-  return (
-    <div className="relative w-full aspect-video">
-      <Image
-        src={images?.[currentImageIndex]?.url || ""}
-        alt={images?.[currentImageIndex]?.alt || "Imagem"}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className="object-contain rounded-lg cursor-pointer"
-        onClick={onImageClick}
-      />
-
-
-      <div className="absolute inset-0 flex justify-between items-center p-2">
-        <Button
-          variant="outline"
-          size="icon"
-          className="bg-white/50 hover:bg-white/75"
-          onClick={prevImage}
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          className="bg-white/50 hover:bg-white/75"
-          onClick={nextImage}
-        >
-          <ArrowRight className="h-4 w-4" />
-        </Button>
-      </div>
-      <p className="text-center mt-2 text-sm">
-        {images?.[currentImageIndex].caption}
-      </p>
-    </div>
-  );
-};
-
-const ProjectDetailsCard: React.FC<{ project: Project }> = ({ project }) => (
-  <Card className="w-full">
-    <CardHeader>
-      <CardTitle>Detalhes do Projeto</CardTitle>
-    </CardHeader>
-    <CardContent className="space-y-2">
-      <p><strong>Status:</strong> {project.status}</p>
-      <p><strong>Duração:</strong> {project.duration.start} - {project.duration.end}</p>
-      <p><strong>Equipe:</strong> {project.team.size} pessoas</p>
-      <p><strong>Função:</strong> {project.role}</p>
-    </CardContent>
-  </Card>
-);
-
-const FeatureCards: React.FC<{ features: Feature[] }> = ({ features }) => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {features.map((feature, index) => (
-      <Card key={index}>
-        <CardHeader>
-          <CardTitle>{feature.title}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p>{feature.description}</p>
-        </CardContent>
-      </Card>
-    ))}
-  </div>
-);
 
 export default function ProjectDetailsPage() {
-
   const { id } = useParams();
 
-  const projectId = id && !Array.isArray(id) ? id : ''; // Valor padrão vazio
+  const projectId = id && !Array.isArray(id) ? id : ''; 
 
   if (!projectId) {
-    return <p>ID do projeto não encontrado.</p>;
+    return (
+      <div className="flex h-screen items-center justify-center text-gray-700">
+        <p className="text-xl font-medium">ID do projeto não encontrado.</p>
+      </div>
+    );
   }
 
   const project: Project = getProject(projectId);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <Header />
-      <div className="container mt-12 mx-auto px-4 py-8 max-w-screen-xl">
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">{project.title}</h1>
-          <h2 className="text-xl md:text-2xl text-muted-foreground mb-6">
-            {project.subtitle}
-          </h2>
-        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="space-y-4">
-            <p className="text-base md:text-lg">{project.longDescription}</p>
 
-            <TechnologiesBadges technologies={project.technologies} />
 
-            <Link href={project.links.github ?? 'https://www.github.com/arthurberdusco'} target="_blank" >
-              <Button>
-                <FaGithub /> GitHub
-              </Button>
-            </Link>
-          </div>
+      <div className="bg-gradient-to-br from-indigo-50 to-white min-h-screen">
 
-          <ProjectDetailsCard project={project} />
-        </div>
-
-        <section className="mb-8">
-          <h3 className="text-2xl font-semibold mb-4">Funcionalidades</h3>
-          <FeatureCards features={project.features} />
-        </section>
-
-        <section className="mb-8">
-          <h3 className="text-2xl font-semibold mb-4">Imagens do Projeto</h3>
-          <ImageCarousel
-            images={project.images || null}
-            onImageClick={() => setIsModalOpen(true)}
-          />
-        </section>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>Desafios</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
-                {project.challenges.map((challenge, index) => (
-                  <li key={index}>{challenge}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle>Soluções</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc pl-5 space-y-2">
-                {project.solutions.map((solution, index) => (
-                  <li key={index}>{solution}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </div>
-
-        {isModalOpen && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="relative max-w-[90vw] max-h-[90vh]">
-              <Button
-                variant="outline"
-                size="icon"
-                className="absolute top-2 right-2 z-10 bg-white"
-                onClick={() => setIsModalOpen(false)}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-              <Image
-                src={project.images[0].url}
-                alt={project.images[0].alt}
-                width={1200}
-                height={800}
-                className="max-w-full max-h-[90vh] object-contain rounded-lg"
-              />
+        <main className="container mx-auto px-6 mt-12 py-6">
+          <div className="bg-white rounded-lg shadow-xl overflow-hidden">
+            <div className="p-8">
+              <div className="align-middle	justify-items-center	 text-start border-b pb-6">
+                <h1 className="text-4xl font-bold text-indigo-700">{project.title}</h1>
+                <h2 className="text-lg text-gray-600 mt-2">{project.subtitle}</h2>
+                <p className="text-gray-700 mt-4">{project.description}</p>
+                <p className="text-gray-500 mt-2 w-1/2">{project.longDescription}</p>
+              </div>
+              <div className="mt-6">
+                <h3 className="text-2xl font-semibold text-indigo-600">Detalhes</h3>
+                <ul className="mt-4 grid grid-cols-2 gap-4 text-gray-700">
+                  <li>
+                    <span className="font-medium">Tipo:</span> {project.type}
+                  </li>
+                  <li>
+                    <span className="font-medium">Status:</span> {project.status}
+                  </li>
+                  <li>
+                    <span className="font-medium">Duração:</span>{' '}
+                    {project.duration.start} - {project.duration.end}
+                  </li>
+                  <li>
+                    <span className="font-medium">Cargo:</span> {project.role}
+                  </li>
+                </ul>
+              </div>
+              <div className="mt-6">
+                <h3 className="text-2xl font-semibold text-indigo-600">Tecnologias</h3>
+                <ul className="mt-4 flex flex-wrap gap-4">
+                  {project.technologies.map((tech, index) => (
+                    <li
+                      key={index}
+                      className="px-4 py-2 bg-indigo-100 text-indigo-800 rounded-lg text-sm font-medium shadow-sm"
+                    >
+                      {tech.name} {tech.version}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-6">
+                <h3 className="text-2xl font-semibold text-indigo-600">Destaques</h3>
+                <ul className="mt-4 list-disc pl-6 text-gray-700">
+                  {project.highlights.map((highlight, index) => (
+                    <li key={index}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-2xl font-semibold text-indigo-600">Imagens</h3>
+                <Swiper
+                  modules={[Navigation, Pagination]}
+                  navigation
+                  pagination={{ clickable: true }}
+                  className="mt-4"
+                  spaceBetween={16}
+                  slidesPerView={1}
+                >
+                  {project.images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                      <figure className="rounded-lg overflow-hidden shadow-md">
+                        <img
+                          src={image.url}
+                          alt={image.alt}
+                          className="object-contain w-full h-[400px]"
+                        />
+                        <figcaption className="text-gray-600 text-sm p-6 my-4 text-center">
+                          {image.caption}
+                        </figcaption>
+                      </figure>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className="mt-6 text-center">
+                <a
+                  href={project.links.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-6 py-3 bg-stone-600 text-white rounded-lg shadow-lg hover:bg-stone-500 transition"
+                >
+                  <FaGithub className="mr-2" />
+                  Repositório no GitHub
+                </a>
+              </div>
             </div>
           </div>
-        )}
+        </main>
       </div>
     </>
+
   );
 }
