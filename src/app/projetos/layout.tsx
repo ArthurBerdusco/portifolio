@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-
 
 export const metadata: Metadata = {
   title: "Meus projetos",

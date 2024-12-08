@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Header from './components/layout/Header';
 
 import Hero from '@/app/components/sections/Hero';
