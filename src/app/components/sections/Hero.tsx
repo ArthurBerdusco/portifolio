@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import arthur from '../../../../public/WhatsApp Image 2024-11-16 at 23.26.29.jpeg';
+import arthur from '../../../../public/WhatsApp Image 2025-02-25 at 09.37.32.jpeg';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export default function Hero() {
