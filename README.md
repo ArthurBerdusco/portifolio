@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio — Arthur Silva
 
-## Getting Started
+Site pessoal em **Next.js 15 + Tailwind**, com um **backoffice em `/admin`** para editar todo o conteúdo sem mexer no código.
 
-First, run the development server:
+## Rodar localmente
 
 ```bash
+npm install
+cp .env.local.example .env.local   # defina ADMIN_PASSWORD
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Site: http://localhost:3000
+- Backoffice: http://localhost:3000/admin
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Em desenvolvimento, o conteúdo editado é salvo em `.data/content.json` e os uploads em `public/uploads/` (ambos ignorados pelo Git).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Publicar na Vercel
 
-## Learn More
+1. Suba este projeto para o GitHub e importe na Vercel (ou substitua o conteúdo do repositório atual).
+2. Em **Settings → Environment Variables**, crie:
+   - `ADMIN_PASSWORD`: a senha do backoffice (use uma forte).
+   - `ADMIN_SECRET`: texto longo e aleatório para assinar a sessão (opcional, recomendado).
+   - `NEXT_PUBLIC_SITE_URL`: o endereço final do site (ex.: `https://arthurberdusco.vercel.app`).
+3. **Salvar alterações em produção** precisa de um banco. Em **Storage / Marketplace**, adicione o **Upstash Redis** (plano gratuito) e conecte ao projeto. A Vercel cria `UPSTASH_REDIS_REST_URL` e `UPSTASH_REDIS_REST_TOKEN` (ou `KV_REST_API_URL` / `KV_REST_API_TOKEN`, que também funcionam).
+4. *(Opcional)* Para **enviar imagens pelo painel**, adicione o **Vercel Blob** ao projeto (cria `BLOB_READ_WRITE_TOKEN`). Sem isso, cole a URL da imagem ou coloque o arquivo em `public/`.
+5. Faça o redeploy. Acesse `/admin`, entre com a senha e edite.
 
-To learn more about Next.js, take a look at the following resources:
+Sem banco configurado, o site continua funcionando com o conteúdo padrão (`src/lib/default-content.ts`), mas o painel avisa que não consegue salvar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como usar o backoffice
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Perfil**: título, textos, foto, currículo em PDF, contato, redes e SEO.
+- **Projetos**: adicionar, reordenar, remover; marcar até dois como *destaque*; capturas de tela com legenda; desafios e soluções.
+- **Experiência, Formação, Habilidades, Certificações**: listas editáveis e reordenáveis.
+- Clique em **Salvar alterações**. O site é atualizado na hora (o cache é invalidado automaticamente).
+- *Restaurar conteúdo padrão* volta ao texto original que veio neste projeto.
 
-## Deploy on Vercel
+## Estrutura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/app/                 páginas (home, /projetos/[slug], /admin, API, sitemap, robots)
+src/components/          seções do site e componentes do painel (admin/)
+src/lib/default-content  conteúdo inicial, baseado no currículo
+src/lib/store.ts         armazenamento (Upstash Redis / arquivo local)
+src/lib/auth.ts          sessão assinada (HMAC) por cookie httpOnly
+public/                  foto, currículo, logos e capturas de tela dos projetos (.webp)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Segurança
+
+- O backoffice só funciona com `ADMIN_PASSWORD` definida; a sessão dura 7 dias em cookie `httpOnly`.
+- As rotas `/api/admin/*` validam a sessão em toda requisição; `/admin` e `/api` estão fora do Google (`robots` + `noindex`).
+- Não versione `.env.local`.
