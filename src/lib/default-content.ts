@@ -238,7 +238,7 @@ export const defaultContent: SiteContent = {
     role: "Desenvolvedor Java Júnior",
     headline: "Desenvolvedor de Software, Web e Mobile",
     intro:
-      "Construo APIs REST com Spring Boot e aplicativos mobile. Antes de escrever código para produção, passei seis anos mantendo os servidores, as redes e os bancos de dados onde ele roda.",
+      "Desenvolvo projetos com Java, Spring Boot, Node e tecnologias web e mobile, unindo minha experiência em sistemas corporativos à criação de soluções de software.",
     availability: "Aberto a oportunidades como Desenvolvedor Java Júnior",
     contactIntro:
       "Estou em busca da minha primeira posição como desenvolvedor Java. Se o seu time tem uma vaga, ou se quiser conversar sobre algum dos projetos, é só escrever.",
