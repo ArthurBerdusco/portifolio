@@ -236,7 +236,7 @@ export const defaultContent: SiteContent = {
   profile: {
     name: "Arthur Silva Berdusco de Souza",
     role: "Desenvolvedor Java Júnior",
-    headline: "Desenvolvedor Java com seis anos de bastidor em infraestrutura crítica.",
+    headline: "Desenvolvedor de Software, Web e Mobile",
     intro:
       "Construo APIs REST com Spring Boot e aplicativos mobile. Antes de escrever código para produção, passei seis anos mantendo os servidores, as redes e os bancos de dados onde ele roda.",
     availability: "Aberto a oportunidades como Desenvolvedor Java Júnior",
